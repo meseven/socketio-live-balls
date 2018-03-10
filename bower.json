@@ -1,0 +1,14 @@
+{
+  "name": "socketio-live-balls",
+  "description": "",
+  "main": "",
+  "authors": [
+    "Mehmet Seven <mehmetseven0@gmail.com>"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/meseven/socketio-live-balls",
+  "dependencies": {
+    "angular": "^1.6.9",
+    "semantic": "^2.3.0"
+  }
+}
