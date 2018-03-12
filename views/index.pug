@@ -4,7 +4,7 @@ block content
   div(ng-controller="indexController", ng-init="init()")
     .ui.one.column.stackable.center.aligned.page.grid.margin-30
       .column.twelve.wide
-        .ui.stacked.segment.gameArea
+        .ui.stacked.segment.gameArea(ng-click="onClickPlayer($event)")
 
           .circle.blue(
             ng-repeat="player in players",
