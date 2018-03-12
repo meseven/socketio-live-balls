@@ -8,7 +8,7 @@ block content
 
           .circle.blue(
             ng-repeat="player in players",
-            ng-style="{ 'left': player.position.y, 'top': player.position.x }",
+            ng-style="{ 'left': player.position.x + 'px', 'top': player.position.y + 'px' }",
             id="{{ player.id }}"
           )
             .relative
