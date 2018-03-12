@@ -19,11 +19,14 @@ block content
               .message this is awesome
         .ui.items.chat
           .item(ng-repeat="message in messages")
-            .content(ng-if="!message.type")
+            .content(ng-if="!message.type.code")
               span [SERVER] &nbsp;
               a.header.name {{ message.username }} &nbsp;
-              .description.message
-                | katıldı
+              .description.message(ng-if="!message.type.message")
+                | ayrıldı.
+              .description.message(ng-if="message.type.message")
+                | katıldı.
+
         .ui.action.input.fluid
           input(type='text', placeholder='Type here...')
           button.ui.button Send
