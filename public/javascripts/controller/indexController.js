@@ -39,6 +39,7 @@ app.controller('indexController', ['$scope', 'indexFactory', ($scope, indexFacto
 					};
 
 					$scope.messages.push(messageData);
+					$scope.players[data.id] = data;
 					$scope.$apply();
 				});
 
@@ -52,15 +53,26 @@ app.controller('indexController', ['$scope', 'indexFactory', ($scope, indexFacto
 					};
 
 					$scope.messages.push(messageData);
+					delete $scope.players[data.id];
 					$scope.$apply();
 				});
 
+				socket.on('animate', data => {
+					$('#'+ data.socketId).animate({ 'left': data.x, 'top': data.y }, () => {
+						animate = false;
+					});
+				});
 
 				let animate = false;
 				$scope.onClickPlayer = ($event) => {
 					if (!animate){
+						let x = $event.offsetX;
+						let y = $event.offsetY;
+
+						socket.emit('animate', { x, y });
+
 						animate = true;
-						$('#'+ socket.id).animate({ 'left':  $event.offsetX, 'top': $event.offsetY }, () => {
+						$('#'+ socket.id).animate({ 'left': x, 'top': y }, () => {
 							animate = false;
 						});
 					}
