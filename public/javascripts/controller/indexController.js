@@ -33,7 +33,7 @@ app.controller('indexController', ['$scope', 'indexFactory', ($scope, indexFacto
 			reconnectionDelay: 600
 		};
 
-		indexFactory.connectSocket('http://localhost:3000', connectionOptions)
+		indexFactory.connectSocket('https://socketio-live-balls.herokuapp.com', connectionOptions)
 			.then((socket) => {
 				socket.emit('newUser', { username });
 
