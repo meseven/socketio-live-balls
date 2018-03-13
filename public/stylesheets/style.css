@@ -54,7 +54,7 @@ body{
   padding: 3px 5px;
   left: 0;
   width: 100%;
-  display: inline-block;
+  display: none;
 }
 
 .chat{
