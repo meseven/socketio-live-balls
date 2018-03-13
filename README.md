@@ -1,6 +1,8 @@
 # socketio-live-balls
 SocketIO Live Balls
 
+[![Socket.io live balls](http://oi68.tinypic.com/346n8qt.jpg)](https://www.youtube.com/watch?v=x1ZURfr95qM)
+
 Live demo on heroku
 
 [https://socketio-live-balls.herokuapp.com/](https://socketio-live-balls.herokuapp.com/)
