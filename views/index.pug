@@ -4,6 +4,7 @@ block content
   div(ng-controller="indexController", ng-init="init()")
     .ui.one.column.stackable.center.aligned.page.grid.margin-30
       .column.twelve.wide
+
         .ui.stacked.segment.gameArea(ng-click="onClickPlayer($event)")
 
           .circle(
@@ -35,4 +36,12 @@ block content
         form.ui.action.input.fluid(ng-submit="newMessage()")
           input(ng-model='message', placeholder='Type here...')
           button.ui.button(type="submit") Send
+
+
+        div.social
+          div
+            a.twitter-follow-button(href='https://twitter.com/mehmeteseven?ref_src=twsrc%5Etfw', data-show-count='true') Follow @mehmeteseven
+          div
+            a.github-button(href='https://github.com/meseven', data-show-count='true', aria-label='Follow @meseven on GitHub') Follow @meseven
+
 

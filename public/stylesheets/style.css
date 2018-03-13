@@ -75,3 +75,11 @@ body{
 .chat .item{
   margin:.3em 0!important;
 }
+
+.social{
+  margin-top: 25px
+}
+.social div {
+  margin-right: 15px!important;
+  display: inline-block;
+}
