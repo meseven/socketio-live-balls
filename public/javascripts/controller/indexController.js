@@ -12,6 +12,13 @@ app.controller('indexController', ['$scope', 'indexFactory', ($scope, indexFacto
 			return false;
 	};
 
+	function scrollTop() {
+		setTimeout(() => {
+			const element = document.getElementById('chat-area');
+			element.scrollTop = element.scrollHeight;
+		});
+	}
+
 
 	function initSocket(username) {
 		const connectionOptions = {
@@ -63,6 +70,12 @@ app.controller('indexController', ['$scope', 'indexFactory', ($scope, indexFacto
 					});
 				});
 
+				socket.on('newMessage', message => {
+					$scope.messages.push(message);
+					$scope.$apply();
+					scrollTop();
+				});
+
 				let animate = false;
 				$scope.onClickPlayer = ($event) => {
 					if (!animate){
@@ -92,10 +105,9 @@ app.controller('indexController', ['$scope', 'indexFactory', ($scope, indexFacto
 					$scope.messages.push(messageData);
 					$scope.message = '';
 
-					setTimeout(() => {
-						const element = document.getElementById('chat-area');
-						element.scrollTop = element.scrollHeight;
-					});
+					socket.emit('newMessage', messageData);
+
+					scrollTop();
 				};
 
 			}).catch((err) => {

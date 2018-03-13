@@ -44,6 +44,10 @@ io.on('connection', (socket) => {
 		});
 	});
 
+	socket.on('newMessage', data => {
+		socket.broadcast.emit('newMessage', data);
+	});
+
 });
 
 module.exports = socketApi;
