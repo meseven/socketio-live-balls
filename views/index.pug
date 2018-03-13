@@ -6,10 +6,11 @@ block content
       .column.twelve.wide
         .ui.stacked.segment.gameArea(ng-click="onClickPlayer($event)")
 
-          .circle.blue(
-            ng-repeat="player in players",
-            ng-style="{ 'left': player.position.x + 'px', 'top': player.position.y + 'px' }",
-            id="{{ player.id }}"
+          .circle(
+            ng-repeat = "player in players",
+            ng-style = "{ 'left': player.position.x + 'px', 'top': player.position.y + 'px' }",
+            id = "{{ player.id }}",
+            class = "{{ player.color }}"
           )
             .relative
               span.name {{ player.username }}
