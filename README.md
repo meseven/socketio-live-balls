@@ -8,6 +8,8 @@ Clone this repo and run commands below.
 
 > npm install -g nodemon
 
-> npm start
+> npm run start:dev
+
+and go to [http://localhost:3000](http://localhost:3000)
 
 enjoy! :heart_eyes:
