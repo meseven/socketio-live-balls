@@ -46,7 +46,6 @@ io.on('connection', (socket) => {
 		}catch(e){
 			console.log(e);
 		}
-
 	});
 
 	socket.on('newMessage', data => {
