@@ -27,16 +27,6 @@ body{
   top: 100px
 }
 
-.blue {
-  background-color: #3498db;
-}
-.green {
-  background-color: #16a085;
-}
-.red {
-  background-color: #e74c3c;
-}
-
 .circle .relative{
   position: relative;
 }
