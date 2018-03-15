@@ -8,9 +8,8 @@ block content
 
           .circle(
             ng-repeat = "player in players",
-            ng-style = "{ 'left': player.position.x + 'px', 'top': player.position.y + 'px' }",
-            id = "{{ player.id }}",
-            class = "{{ player.color }}"
+            ng-style = "{ 'left': player.position.x + 'px', 'top': player.position.y + 'px', 'background': player.color }",
+            id = "{{ player.id }}"
           )
             .relative
               span.name {{ player.username }}
