@@ -1,7 +1,12 @@
-const colors = ['blue', 'green', 'red'];
+const randomColorRGB = function() {
+	return Math.round(Math.random() * 1000) % 256;
+}
 
 const randomColor = () => {
-	return colors[Math.floor(Math.random() * colors.length)];
+	var r = randomColorRGB();
+	var g = randomColorRGB();
+	var b = randomColorRGB();
+	return `rgb(${r},${g}, ${b})`;
 };
 
 module.exports = randomColor;
