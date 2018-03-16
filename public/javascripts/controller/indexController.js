@@ -18,12 +18,12 @@ app.controller('indexController', ['$scope', 'indexFactory', 'configFactory', ($
 			element.scrollTop = element.scrollHeight;
 		});
 	}
-	
+
 	function bubbleLifeTime(message) {
-		var min = 500;  // min bubble life time
-		var max = 3000; // max bubble life time
-		var msPerLetter = 40; // miliseconds per letter
-		var bubbleTime;
+		const min = 500;  // min bubble life time
+		const max = 3000; // max bubble life time
+		const msPerLetter = 40; // miliseconds per letter
+		let bubbleTime;
 
 		bubbleTime = min + (message.length * msPerLetter);
 
@@ -33,7 +33,7 @@ app.controller('indexController', ['$scope', 'indexFactory', 'configFactory', ($
 			return bubbleTime;
 
 	}
-	
+
 	function showBubble(id, message) {
 		$('#'+ id).find('.message').show().html(message);
 
