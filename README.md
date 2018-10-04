@@ -1,15 +1,11 @@
 # socketio-live-balls
 SocketIO Live Balls
 
-[![Socket.io live balls](http://oi68.tinypic.com/346n8qt.jpg)](https://www.youtube.com/watch?v=x1ZURfr95qM)
+[![Socket.io live balls](https://s3.amazonaws.com/mseven-general/socketio-live-balls-github.jpg)](https://www.youtube.com/watch?v=x1ZURfr95qM)
 
-YouTube Video
+YouTube Trailer: [Click](https://www.youtube.com/watch?v=x1ZURfr95qM)
 
-[https://www.youtube.com/watch?v=x1ZURfr95qM](https://www.youtube.com/watch?v=x1ZURfr95qM)
-
-Live demo on heroku
-
-[https://socketio-live-balls.herokuapp.com/](https://socketio-live-balls.herokuapp.com/)
+Live demo on heroku: [Click](https://socketio-live-balls.herokuapp.com/)
 
 ## Local Installation
 Clone this repo and run commands below.
