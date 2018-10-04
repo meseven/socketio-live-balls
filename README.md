@@ -1,7 +1,7 @@
 # socketio-live-balls
 SocketIO Live Balls
 
-[![Socket.io live balls](https://s3.amazonaws.com/mseven-general/socketio-live-balls-github.jpg)](https://www.youtube.com/watch?v=x1ZURfr95qM)
+[![Socket.io live balls](https://s3.amazonaws.com/mseven-general/socketio-live-balls-github-repo.jpg)](https://www.youtube.com/watch?v=x1ZURfr95qM)
 
 YouTube Trailer: [Click](https://www.youtube.com/watch?v=x1ZURfr95qM)
 
