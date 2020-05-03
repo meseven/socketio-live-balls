@@ -2,36 +2,39 @@ extends layout
 
 block content
   div(ng-controller="indexController", ng-init="init()")
-    .ui.one.column.stackable.center.aligned.page.grid.margin-30
-      .column.twelve.wide
-        .ui.stacked.segment.gameArea(ng-click="onClickPlayer($event)")
+    .gameArea(ng-click="onClickPlayer($event)")
+      .circle(
+        ng-repeat = "player in players",
+        ng-style = "{ 'left': player.position.x + 'px', 'top': player.position.y + 'px', 'background': player.color }",
+        id = "{{ player.id }}"
+      )
+        .relative
+          span.name {{ player.username }}
+          .message
 
-          .circle(
-            ng-repeat = "player in players",
-            ng-style = "{ 'left': player.position.x + 'px', 'top': player.position.y + 'px', 'background': player.color }",
-            id = "{{ player.id }}"
-          )
-            .relative
-              span.name {{ player.username }}
-              .message
+    .chat#chat-area
+      .item(ng-repeat="message in messages")
+        .content(ng-if="!message.type.code")
+          span [SERVER] &nbsp;
+          a.header.name {{ message.username }} &nbsp;
+          .description.message(ng-if="!message.type.message")
+            | ayrıldı.
+          .description.message(ng-if="message.type.message")
+            | katıldı.
 
+        .content(ng-if="message.type.code")
+          a.header.name {{ message.username }} :&nbsp;
+          .description.message
+            | {{ message.text }}
 
-        .ui.items.chat#chat-area
-          .item(ng-repeat="message in messages")
-            .content(ng-if="!message.type.code")
-              span [SERVER] &nbsp;
-              a.header.name {{ message.username }} &nbsp;
-              .description.message(ng-if="!message.type.message")
-                | ayrıldı.
-              .description.message(ng-if="message.type.message")
-                | katıldı.
+    form(ng-submit="newMessage()")
+      input(ng-model='message', placeholder='Message or Change The Name', autofocus)
+      span.changes(ng-click="onClickChange($event)") 
+        | Change
+      span.change
+        a.bg(ng-click="onClickBgChange($event)") 
+          | Bg Change
+        a.nick(ng-click="onClickNickChange($event)") 
+          | Change Name
 
-            .content(ng-if="message.type.code")
-              a.header.name {{ message.username }} &nbsp;
-              .description.message
-                | {{ message.text }}
-
-        form.ui.action.input.fluid(ng-submit="newMessage()")
-          input(ng-model='message', placeholder='Type here...')
-          button.ui.button(type="submit") Send
 

@@ -1,20 +1,23 @@
 body{
-  background-color: #f0f1f6!important;
-}
-
-.margin-30{
-  margin: 30px 0!important;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 14px;
+  background: #1F252D url("https://source.unsplash.com/random/1920x1080") no-repeat center fixed !important;
+  background-size: cover;
 }
 
 .gameArea{
-  min-height:450px;
-  position: relative;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
 }
 
 .circle {
-  width: 80px;
-  height: 80px;
-  line-height: 80px;
+  width: 75px;
+  height: 75px;
+  line-height: 75px;
   border-radius: 50%; /* the magic */
   -moz-border-radius: 50%;
   -webkit-border-radius: 50%;
@@ -22,7 +25,6 @@ body{
   color: white;
   font-size: 14px;
   font-weight: 700;
-  margin: 0 auto 40px;
   position: absolute;
   top: 100px
 }
@@ -48,13 +50,20 @@ body{
 }
 
 .chat{
-  margin-right: 10px!important;
-  margin-left: 10px!important;
-  height: 90px;
-  overflow-y: auto
+  position: absolute;
+  bottom: 11%;
+  left: 30%;
+  width: 40%;
+  height: 88%;
+  overflow-y: auto;
+  z-index: -1;
 }
 .chat .content{
   text-align: left;
+  padding: 2px 10px;
+  color:#fff;
+  text-shadow: 2px 2px #000;
+  letter-spacing: 2px;
 }
 .chat .name{
   font-size: 15px!important;
@@ -63,5 +72,47 @@ body{
   display: inline;
 }
 .chat .item{
-  margin:.3em 0!important;
+  margin:.2em 0!important;
+}
+
+form{
+  position: absolute;
+  bottom: 20px;
+  width: 40%;
+  left: 30%;
+  padding: 10px;
+  padding: 0;
+}
+form input{
+  padding: 10px;
+  outline: none;
+  width: 100%;
+  border: solid 1px sandybrown;
+}
+::-webkit-scrollbar {
+  width: 0px;
+}
+span.changes{
+  position: absolute;
+  right: 0;
+  top: 3px;
+  padding: 5px;
+  cursor: pointer;
+  background: skyblue;
+}
+span.change{
+  position: absolute;
+  right: -5px;
+  bottom: 35px;
+  width: 150px;
+  padding: 5px;
+  display: none;
+}
+span.change a{
+  display: block;
+  text-align: right;
+  padding: 5px;
+  background: skyblue;
+  margin-bottom: 3px;
+  cursor: pointer;
 }

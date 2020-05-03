@@ -4,8 +4,7 @@ app.controller('indexController', ['$scope', 'indexFactory', 'configFactory', ($
 	$scope.players = { };
 
 	$scope.init = () => {
-		const username = prompt('Please enter username');
-
+		const username = Math.random().toString(36).replace(/[^a-z]+/g, '').substr(0, 5);
 		if (username)
 			initSocket(username);
 		else
@@ -104,38 +103,70 @@ app.controller('indexController', ['$scope', 'indexFactory', 'configFactory', ($
 			});
 
 			let animate = false;
+			let objSize, X, Y = 0;
+			//let maxH = $(window)[0].innerHeight;
+			//let maxW = $(window)[0].innerWidth;
 			$scope.onClickPlayer = ($event) => {
+				objSize = $('#'+ socket.id)[0].offsetWidth;
+				objC = objSize/2;
+				x = $event.offsetX - objC;
+				y = $event.offsetY - objC;
+				// taşan kısımlar için bir ayarlama yapılabilir.
 				if (!animate){
-					let x = $event.offsetX;
-					let y = $event.offsetY;
-
 					socket.emit('animate', { x, y });
-
 					animate = true;
 					$('#'+ socket.id).animate({ 'left': x, 'top': y }, () => {
 						animate = false;
 					});
 				}
 			};
+			// Change Button click
+			$scope.onClickChange =($event)=>{
+				$('span.change').css('display','block');
+			}
+			// Change Nicname
+			$scope.onClickNickChange =($event)=>{
+				$('span.change').css('display','none');
+				const name = $('input').val();
+				if(name!==""){
+					username = name;
+					socket.emit('nickname', name);
+				}
+			}
+			// Change background
+			$scope.onClickBgChange =($event)=>{
+				$('span.change').css('display','none');
+				var imageUrl = "https://source.unsplash.com/random/1920x1080";
+				$('html').css("background-image", "url(" + imageUrl + ")");
+			}
+			// Focus input
+			window.addEventListener("keyup", function(e){
+				$('input').focus();
+			});
+			// scroll
+			/*window.addEventListener('mousewheel', function(e) {
+				//console.log(e.deltaY);
+			});*/
 
 			$scope.newMessage = () =>{
 				let message = $scope.message;
-
-				const messageData = {
-					type: {
-						code: 1, // server or user message
-					},
-					username: username,
-					text: message
-				};
-
-				$scope.messages.push(messageData);
-				$scope.message = '';
-
-				socket.emit('newMessage', messageData);
-
-				showBubble(socket.id, message);
-				scrollTop();
+				if(message && message!=="" && message.length>1){
+					const messageData = {
+						type: {
+							code: 1, // server or user message
+						},
+						username: username,
+						text: message
+					};
+	
+					$scope.messages.push(messageData);
+					$scope.message = '';
+	
+					socket.emit('newMessage', messageData);
+	
+					showBubble(socket.id, message);
+					scrollTop();
+				}
 			};
 		}catch(err){
 			console.log(err);

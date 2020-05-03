@@ -53,6 +53,11 @@ io.on('connection', (socket) => {
 		socket.broadcast.emit('newMessage', messageData);
 	});
 
+	socket.on('nickname', function(nickname) {
+		users[socket.id].username = nickname
+		socket.emit('initPlayers', users);
+	});
+
 });
 
 module.exports = socketApi;
