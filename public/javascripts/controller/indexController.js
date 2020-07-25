@@ -35,7 +35,7 @@ app.controller('indexController', ['$scope', 'indexFactory', 'configFactory', ($
 	}
 
 	function showBubble(id, message) {
-		$('#'+ id).find('.message').show().html(message);
+		$('#'+ id).find('.message').show().text(message);
 
 		setTimeout(() => {
 			$('#'+ id).find('.message').hide();
